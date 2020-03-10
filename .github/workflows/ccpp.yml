@@ -13,6 +13,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+    - name: install_setuptools
+      run: pip3 install setuptools
     - name: install_conan
       run: pip3 install conan
     - name: configure
