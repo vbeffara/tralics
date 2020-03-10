@@ -13,10 +13,14 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: install_prereq
-      run: pip3 install setuptools wheel
-    - name: install_conan
-      run: pip3 install conan
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip setuptools wheel 
+        python -m pip install conan
     - name: configure
       run: cmake -B build
     - name: make
