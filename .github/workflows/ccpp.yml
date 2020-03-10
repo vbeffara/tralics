@@ -13,6 +13,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+    - name: install_conan
+      run: pip3 install conan
     - name: configure
       run: cmake -B build
     - name: make
